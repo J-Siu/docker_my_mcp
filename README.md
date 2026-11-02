@@ -39,6 +39,6 @@ docker compose up -d
 
 Github: https://github.com/J-Siu/docker_my_mcp
 
-Docker Hub: https://hub.docker.com/repository/docker/jsiu/my_mpc/general
+Docker Hub: https://hub.docker.com/repository/docker/jsiu/my_mcp
 
 <!-- cspell:words APIKEY SEARXNGURL -->
