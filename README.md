@@ -1,4 +1,4 @@
-# go-my-mcp Docker
+# docker_my_mcp
 
 MCP host support SearXNG and web fetch using [go-my-mcp](https://github.com/J-Siu/go-my-mcp)
 
@@ -34,5 +34,11 @@ Start the container and access the MCP endpoint at `http://localhost:9000/mcp`:
 ```sh
 docker compose up -d
 ```
+
+## Repository
+
+Github: https://github.com/J-Siu/docker_my_mcp
+
+Docker Hub: https://hub.docker.com/repository/docker/jsiu/my_mpc/general
 
 <!-- cspell:words APIKEY SEARXNGURL -->
