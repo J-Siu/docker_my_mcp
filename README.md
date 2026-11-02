@@ -1,20 +1,19 @@
 # go-my-mcp Docker
 
-Build and run [go-my-mcp](https://github.com/J-Siu/go-my-mcp) with Docker Compose:
+MCP host support SearXNG and web fetch using [go-my-mcp](https://github.com/J-Siu/go-my-mcp)
+
+## Docker Compose
 
 ```yaml
 services:
-  go-my-mcp:
-    build:
-      context: .
-      args:
-        VERSION: v1.0.3
+  my-mcp:
+    image: jsiu/my_mcp
     command: ["start"]
     environment:
       GO_MY_MCP_SEARXNGURL: ${SEARXNG_URL:?Set SEARXNG_URL to a reachable SearXNG URL}
       GO_MY_MCP_APIKEY: ${GO_MY_MCP_APIKEY:-}
     ports:
-      - "127.0.0.1:9000:9000"
+      - "9000:9000"
     restart: unless-stopped
 ```
 
@@ -33,8 +32,7 @@ host address if clients on other machines need to connect.
 Start the container and access the MCP endpoint at `http://localhost:9000/mcp`:
 
 ```sh
-docker compose up --build -d
+docker compose up -d
 ```
 
-The image build defaults to release `v1.0.3`; update the `VERSION` build
-argument to compile a different go-my-mcp tag.
+<!-- cspell:words APIKEY SEARXNGURL -->

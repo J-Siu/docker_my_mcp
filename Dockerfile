@@ -32,4 +32,4 @@ COPY --from=build_base --chown=app:app /out/go-my-mcp /usr/local/bin/go-my-mcp
 
 USER app:app
 EXPOSE 9000
-ENTRYPOINT ["go-my-mcp","start"]
+ENTRYPOINT ["go-my-mcp"]
