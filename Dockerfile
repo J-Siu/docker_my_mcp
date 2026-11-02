@@ -8,9 +8,9 @@ RUN apk add --no-cache git
 
 WORKDIR /src
 RUN git clone --depth 1 --branch "${VERSION}" \
-    https://github.com/J-Siu/go-my-mcp.git .
+	https://github.com/J-Siu/go-my-mcp.git .
 RUN CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" \
-    -o /out/go-my-mcp .
+	-o /out/go-my-mcp .
 
 FROM alpine:3.23
 ARG VERSION
@@ -20,10 +20,10 @@ LABEL name="my_mpc"
 LABEL usage="https://github.com/J-Siu/docker_my_mpc/blob/master/README.md"
 LABEL description="Docker - My MPC (SearXNG and Web Fetch)"
 RUN apk add --no-cache ca-certificates \
-    && addgroup -S app \
-    && adduser -S -G app -h /home/app app \
-    && mkdir -p /home/app \
-    && chown app:app /home/app
+	&& addgroup -S app \
+	&& adduser -S -G app -h /home/app app \
+	&& mkdir -p /home/app \
+	&& chown app:app /home/app
 
 WORKDIR /home/app
 ENV HOME=/home/app
@@ -32,4 +32,4 @@ COPY --from=build_base --chown=app:app /out/go-my-mcp /usr/local/bin/go-my-mcp
 
 USER app:app
 EXPOSE 9000
-ENTRYPOINT ["go-my-mcp"]
+ENTRYPOINT ["go-my-mcp","start"]
