@@ -16,9 +16,9 @@ FROM alpine:3.23
 ARG VERSION
 LABEL version=${VERSION}
 LABEL maintainers="[John Sing Dao Siu](https://github.com/J-Siu)"
-LABEL name="my_mpc"
-LABEL usage="https://github.com/J-Siu/docker_my_mpc/blob/master/README.md"
-LABEL description="Docker - My MPC (SearXNG and Web Fetch)"
+LABEL name="my_mcp"
+LABEL usage="https://github.com/J-Siu/docker_my_mcp/blob/master/README.md"
+LABEL description="Docker - My MCP (SearXNG and Web Fetch)"
 RUN apk add --no-cache ca-certificates \
 	&& addgroup -S app \
 	&& adduser -S -G app -h /home/app app \
