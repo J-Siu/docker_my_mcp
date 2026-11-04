@@ -1,5 +1,5 @@
 ARG GO_VERSION=1.27.2
-ARG VERSION=v1.0.4
+ARG VERSION=v1.0.5
 
 FROM golang:${GO_VERSION}-alpine AS build_base
 ARG VERSION
