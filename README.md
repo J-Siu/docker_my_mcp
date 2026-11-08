@@ -35,6 +35,35 @@ Start the container and access the MCP endpoint at `http://localhost:9000/mcp`:
 docker compose up -d
 ```
 
+## VS Code MCP Server Setup
+
+Pick HTTP endpoint. Or create `$HOME/.copilot/mcp-config.json`:
+
+```json
+{
+  "mcpServers": {
+    "go-my-mcp": {
+      "type": "http",
+      "url": "http://localhost:9000/mcp"
+    }
+  }
+}
+```
+
+With API key
+
+```json
+{
+  "servers": {
+    "go-my-mcp": {
+      "type": "http",
+      "url": "http://localhost:9000/mcp",
+      "headers": { "Authorization": "Bearer s3cr3t" }
+    }
+  }
+}
+```
+
 ## Repository
 
 Github: https://github.com/J-Siu/docker_my_mcp
