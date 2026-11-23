@@ -1,7 +1,7 @@
-ARG GO_VERSION=1.27.2
+ARG GO_VERSION=1.27.4
 ARG PKG="my_mcp"
 ARG USR="https://github.com/J-Siu"
-ARG VER=v1.0.7
+ARG VER=v1.0.8
 
 FROM golang:${GO_VERSION}-alpine AS build_base
 ARG VER
@@ -10,8 +10,7 @@ RUN apk add --no-cache git
 
 WORKDIR /src
 RUN git clone --depth 1 --branch "${VER}" ${USR}/go-my-mcp.git .
-RUN CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" \
-	-o /out/go-my-mcp .
+RUN CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o /out/go-my-mcp .
 
 FROM alpine:edge
 ARG PKG
@@ -23,10 +22,10 @@ LABEL name="${PKG}"
 LABEL usage="${USR}/docker_my_mcp/blob/master/README.md"
 LABEL description="Docker - My MCP (SearXNG and Web Fetch)"
 RUN apk add --no-cache ca-certificates \
-	&& addgroup -S app \
-	&& adduser -S -G app -h /home/app app \
-	&& mkdir -p /home/app \
-	&& chown app:app /home/app
+&& addgroup -S app \
+&& adduser -S -G app -h /home/app app \
+&& mkdir -p /home/app \
+&& chown app:app /home/app
 
 WORKDIR /home/app
 ENV HOME=/home/app
