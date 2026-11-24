@@ -1,7 +1,7 @@
 ARG GO_VERSION=1.27.4
 ARG PKG="my_mcp"
 ARG USR="https://github.com/J-Siu"
-ARG VER=v1.0.8
+ARG VER=v1.0.9
 
 FROM golang:${GO_VERSION}-alpine AS build_base
 ARG VER
